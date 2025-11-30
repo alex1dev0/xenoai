@@ -110,4 +110,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-Created by **Alex1Dev**
+**Have fun trolling the AI!** 🎉
+
+*Made with ❤️ by @alex1dev*
