@@ -9,11 +9,11 @@
 <p align="center">
   *Developed with the software and tools below.*
 </p>
-<p align="center">
-  [![contributors](https://img.shields.io/github/contributors/alex1dev0/xenoai?style=flat-square)](https://github.com/alex1dev0/xenoai/graphs/contributors)
-  [![forks](https://img.shields.io/github/forks/alex1dev0/xenoai?style=flat-square)](https://github.com/alex1dev0/xenoai/network/members)
-  [![stars](https://img.shields.io/github/stars/alex1dev0/xenoai?style=flat-square)](https://github.com/alex1dev0/xenoai/stargazers)
-</p>
+
+[![contributors](https://img.shields.io/github/contributors/alex1dev0/xenoai?style=flat-square)](https://github.com/alex1dev0/xenoai/graphs/contributors)
+[![forks](https://img.shields.io/github/forks/alex1dev0/xenoai?style=flat-square)](https://github.com/alex1dev0/xenoai/network/members)
+[![stars](https://img.shields.io/github/stars/alex1dev0/xenoai?style=flat-square)](https://github.com/alex1dev0/xenoai/stargazers)
+
 </div>
 
 ---
