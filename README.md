@@ -4,7 +4,7 @@
 
 <div align="center">
 
-![License](https://img.shields.io/badge/License-Alex1Dev-blue?style=flat-square) ![Top Language](https://img.shields.io/github/languages/top/alex1dev0/xenoai?style=flat-square) ![Repo Size](https://img.shields.io/github/repo-size/alex1dev0/xenoai?style=flat-square) ![Issues](https://img.shields.io/github/issues/alex1dev0/xenoai?style=flat-square) ![Stars](https://img.shields.io/github/stars/alex1dev0/xenoai?style=flat-square) 
+![License](https://img.shields.io/badge/license-MIT%20License-blue.svg?style=flat-square) ![Top Language](https://img.shields.io/github/languages/top/alex1dev0/xenoai?style=flat-square) ![Repo Size](https://img.shields.io/github/repo-size/alex1dev0/xenoai?style=flat-square) ![Issues](https://img.shields.io/github/issues/alex1dev0/xenoai?style=flat-square) ![Stars](https://img.shields.io/github/stars/alex1dev0/xenoai?style=flat-square) 
 
 <p align="center">
   <em>Developed with the software and tools below.</em>
