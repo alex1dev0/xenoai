@@ -1,34 +1,118 @@
+<div align="center">
+  <img src="https://socialify.git.ci/alex1dev0/xenoai/image?description=1&font=Inter&language=1&name=1&owner=1&pattern=Transparent&theme=Auto" alt="xenoai" width="500" />
+</div>
+
+<div align="center">
+
+![License](https://img.shields.io/github/license/alex1dev0/xenoai?style=flat-square) ![Top Language](https://img.shields.io/github/languages/top/alex1dev0/xenoai?style=flat-square) ![Repo Size](https://img.shields.io/github/repo-size/alex1dev0/xenoai?style=flat-square) ![Issues](https://img.shields.io/github/issues/alex1dev0/xenoai?style=flat-square) ![Stars](https://img.shields.io/github/stars/alex1dev0/xenoai?style=flat-square) 
+
+<p align="center">
+  *Developed with the software and tools below.*
+</p>
+<p align="center">
+  [![contributors](https://img.shields.io/github/contributors/alex1dev0/xenoai?style=flat-square)](https://github.com/alex1dev0/xenoai/graphs/contributors)
+  [![forks](https://img.shields.io/github/forks/alex1dev0/xenoai?style=flat-square)](https://github.com/alex1dev0/xenoai/network/members)
+  [![stars](https://img.shields.io/github/stars/alex1dev0/xenoai?style=flat-square)](https://github.com/alex1dev0/xenoai/stargazers)
+</p>
+</div>
+
+---
+
 # XenoAI - Chat Interface
 
 A modern, responsive, and lightweight chat interface built with PHP, SQLite, and vanilla JavaScript, designed to interact with local LLMs (Large Language Models) via Ollama.
 
-![XenoAI Screenshot](assets/save.png)
+## Table of Contents
 
-## 🚀 Features
+- [Languages](#languages)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Configuration](#configuration)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Languages
+
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white) ![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
+
+## Features
 
 - **Local AI Integration**: Seamlessly connects to Ollama (default model: `qwen2.5:1.5b-instruct-q4_K_M`) for privacy-focused AI interactions.
 - **Modern UI/UX**: 
   - Glassmorphism design with dynamic background effects.
-  - Fully responsive layout (mobile-first approach).
-  - Smooth typing indicators and real-time streaming responses.
+  - Fully responsive layout (mobile-first approach) with swipe gestures.
+  - Smooth typing indicators and real-time streaming responses (SSE).
   - Markdown support with code highlighting.
 - **Chat Management**:
-  - Create multiple conversations.
+  - Create multiple independent conversations.
   - Sidebar history with auto-generated titles.
   - Rename and delete chat capabilities.
-  - **Auto-Cleanup**: Automatically deletes conversations older than 30 days to maintain performance.
 - **Data Persistence**:
   - Uses SQLite for robust, server-less data storage.
   - Automatic database creation and initialization on first run.
-  - Cascading deletes for efficient data management.
 - **Performance**:
   - No heavy frameworks (Vanilla JS, PHP).
-  - Efficient asset caching (cache-busting strategy).
-  - Streamed responses for instant feedback.
+  - Efficient asset caching.
+  - Device-based session management.
 
-## 📂 Project Structure
+## Getting Started
 
+### Prerequisites
+
+- **PHP 8.0+** (with `sqlite3` and `pdo_sqlite` extensions enabled).
+- **Web Server** (Apache, Nginx, or PHP built-in server).
+- **Ollama** running locally (default port: `11434`).
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/alex1dev0/xenoai.git
+cd xenoai
 ```
+
+2. Configure Ollama:
+Ensure your Ollama instance is running and has the required model installed:
+```bash
+ollama pull qwen2.5:1.5b-instruct-q4_K_M
+```
+*Note: You can change the model in `config.php`.*
+
+### Running the App
+
+You can serve the project using PHP's built-in server:
+
+```bash
+php -S localhost:8000
+```
+
+Access `http://localhost:8000` in your browser.
+
+## Configuration
+
+You can customize the application by editing `config.php`.
+
+### Changing the AI Model
+Modify the `model` array in `config.php`:
+```php
+'model' => [
+    'name' => 'llama3', // Change to your preferred model
+    'api_endpoint' => 'http://127.0.0.1:11434/api/chat',
+    'max_tokens' => 1024,
+    // ... other parameters
+],
+```
+
+### Modifying the System Prompt
+Customize the AI's persona in `config.php` under `'session' => 'system_message'`. The default persona is a helpful assistant named XenoAI.
+
+### Logs
+Error logs are stored in `logs/error.log` by default. You can configure logging behavior in the `app` section of `config.php`.
+
+## Project Structure
+
+```text
 /
 ├── api/
 │   ├── api.php           # Handles AI model communication (SSE streaming)
@@ -37,74 +121,27 @@ A modern, responsive, and lightweight chat interface built with PHP, SQLite, and
 │   ├── proxy.php         # Central routing for API requests
 │   └── reset.php         # Session reset functionality
 ├── assets/
-│   ├── style.css         # Main stylesheet (CSS Variables, Flexbox/Grid)
 │   ├── script.js         # Frontend logic (DOM manipulation, Fetch API)
-│   └── ...               # Images and icons
-├── config.php            # Configuration settings (Model params, System prompt)
-├── functions.php         # Helper functions (e.g., asset versioning)
+│   ├── style.css         # Main stylesheet (CSS Variables, Flexbox/Grid)
+│   └── ...               # Images
+├── logs/                 # Application logs
+├── config.php            # Configuration settings
+├── functions.php         # Helper functions
 ├── index.php             # Main application entry point
-└── chat_history.db       # SQLite database (auto-created)
+└── READMEBASE.md         # This file
 ```
 
-## 🛠️ Setup & Installation
-
-1.  **Prerequisites**:
-    - PHP 8.1 or higher with `sqlite3` and `pdo_sqlite` extensions enabled.
-    - A web server (Apache/Nginx).
-    - [Ollama](https://ollama.com/) running locally (default port: `11434`).
-
-2.  **Clone the Repository**:
-    ```bash
-    git clone https://github.com/alex1dev0/xenoai.git
-    cd xenoai
-    ```
-
-3.  **Configure Ollama**:
-    Ensure your Ollama instance is running and has the required model installed:
-    ```bash
-    ollama pull qwen2.5:1.5b-instruct-q4_K_M
-    ```
-    *Note: You can change the model in `config.php`.*
-
-4.  **Run**:
-    Serve the project using your preferred web server or PHP's built-in server:
-    ```bash
-    php -S localhost:8000
-    ```
-    Access `http://localhost:8000` in your browser.
-
-## ⚙️ Configuration & Customization
-
-### Changing the AI Model
-Open `config.php` and modify the `model` array:
-```php
-'model' => [
-    'name' => 'llama3', // Change to your preferred model
-    'api_endpoint' => 'http://127.0.0.1:11434/api/chat',
-    'max_tokens' => 1024,
-    ...
-],
-```
-
-### Modifying the System Prompt
-Customize the AI's persona in `config.php` under `'session' => 'system_message'`.
-
-### Database Management
-The application uses a local SQLite database (`chat_history.db`).
-- **Location**: Root directory (created automatically).
-- **Auto-Cleanup**: By default, chats older than 30 days are deleted. You can modify this retention period in `api/db.php` inside the `cleanupOldConversations()` method.
-
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-1.  Fork the project
-2.  Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to the branch (`git push origin feature/AmazingFeature`)
-5.  Open a Pull Request
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📜 License
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
