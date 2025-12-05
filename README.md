@@ -4,10 +4,10 @@
 
 <div align="center">
 
-![License](https://img.shields.io/github/license/alex1dev0/xenoai?style=flat-square) ![Top Language](https://img.shields.io/github/languages/top/alex1dev0/xenoai?style=flat-square) ![Repo Size](https://img.shields.io/github/repo-size/alex1dev0/xenoai?style=flat-square) ![Issues](https://img.shields.io/github/issues/alex1dev0/xenoai?style=flat-square) ![Stars](https://img.shields.io/github/stars/alex1dev0/xenoai?style=flat-square) 
+![License](https://img.shields.io/badge/License-Alex1Dev-blue?style=flat-square) ![Top Language](https://img.shields.io/github/languages/top/alex1dev0/xenoai?style=flat-square) ![Repo Size](https://img.shields.io/github/repo-size/alex1dev0/xenoai?style=flat-square) ![Issues](https://img.shields.io/github/issues/alex1dev0/xenoai?style=flat-square) ![Stars](https://img.shields.io/github/stars/alex1dev0/xenoai?style=flat-square) 
 
 <p align="center">
-  *Developed with the software and tools below.*
+  <em>Developed with the software and tools below.</em>
 </p>
 
 [![contributors](https://img.shields.io/github/contributors/alex1dev0/xenoai?style=flat-square)](https://github.com/alex1dev0/xenoai/graphs/contributors)
