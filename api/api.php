@@ -27,7 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$input = json_decode(file_get_contents('php://input'), true);
+$rawInput = file_get_contents('php://input');
+$input = json_decode($rawInput, true);
 
 if (!isset($input['message']) || empty(trim($input['message']))) {
     http_response_code(400);
@@ -37,21 +38,23 @@ if (!isset($input['message']) || empty(trim($input['message']))) {
 
 $db = new Database();
 $conversation_id = isset($input['conversation_id']) ? $input['conversation_id'] : null;
+$user_id = isset($input['user_id']) ? $input['user_id'] : null;
+
 $is_new_conversation = false;
 
 try {
     if (!$conversation_id) {
         $title = substr(strip_tags($input['message']), 0, 30) . '...';
-        $user_id = isset($input['user_id']) ? $input['user_id'] : null;
         $conversation_id = $db->createConversation($title, $user_id);
         $is_new_conversation = true;
     } else {
         $chat = $db->getConversation($conversation_id);
         if (!$chat) {
             $title = substr(strip_tags($input['message']), 0, 30) . '...';
-            $user_id = isset($input['user_id']) ? $input['user_id'] : null;
             $conversation_id = $db->createConversation($title, $user_id);
             $is_new_conversation = true;
+        } else {
+            $is_new_conversation = false;
         }
     }
 
